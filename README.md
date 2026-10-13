@@ -23,6 +23,7 @@ A three-node embedded systems prototype demonstrating vehicle-status monitoring 
 - [Sensor Operation](#sensor-operation)
 - [CAN Communication](#can-communication)
 - [Build and Flash](#build-and-flash)
+- [Hardware Implementation and Output Evidence](#hardware-implementation-and-output-evidence)
 - [Testing Checklist](#testing-checklist)
 - [Limitations and Safety Notes](#limitations-and-safety-notes)
 - [Future Improvements](#future-improvements)
@@ -405,6 +406,60 @@ The repository contains Embedded C source files, but the supplied archive does n
 6. Test each node independently, then connect the CAN bus and test the complete system.
 
 Do not describe the firmware as build-verified until all three images have been compiled successfully with the actual toolchain.
+
+## Hardware Implementation and Output Evidence
+
+This section contains photographs of the physical prototype. The diagrams earlier in this README explain the architecture and intended data flow; the photographs below document the assembled boards and LCD states observed during the demonstration. They are complementary forms of documentation: diagrams explain the design, while photographs show the actual setup.
+
+> **Evidence note:** These photographs are qualitative evidence of the displayed states and physical setup. They do not, by themselves, prove sensor accuracy, CAN error-free operation, response time, or automotive safety. Use measured test results for those claims.
+
+### 1. LCD startup screen
+
+The LCD displays the project title during startup.
+
+![LCD startup screen showing the project title](images/output-title-screen.jpeg)
+
+### 2. Complete hardware setup
+
+The prototype uses multiple LPC2129 development boards connected with jumper wires. The main-node LCD and the ultrasonic sensor are visible in the assembled setup.
+
+![Complete hardware prototype](images/output-hardware-setup.jpeg)
+
+### 3. Forward driving mode
+
+The LCD shows the temperature reading, indicator status, and forward-mode state in this captured demonstration.
+
+![Forward driving mode displayed on the LCD](images/output-forward-mode.jpeg)
+
+### 4. Reverse mode and obstacle alert
+
+The LCD shows reverse mode and a distance/alert status in this captured demonstration. The exact threshold behavior should be documented using separate measurements at known distances.
+
+![Reverse mode and distance alert output](images/output-reverse-alert.jpeg)
+
+### 5. Left-indicator demonstration
+
+This photograph records the hardware while the left-indicator input/state is being demonstrated.
+
+![Left-indicator demonstration](images/output-left-indicator.jpeg)
+
+### 6. Right-indicator demonstration
+
+This photograph records the hardware while the right-indicator input/state is being demonstrated.
+
+![Right-indicator demonstration](images/output-right-indicator.jpeg)
+
+### Output observations
+
+Based on the captured LCD screens and prototype photographs:
+
+- The LCD can display the project title and operating information.
+- Temperature values are shown in degrees Celsius; the photographs include readings around 38–40 °C.
+- The display shows forward and reverse operating states.
+- Indicator inputs/states are demonstrated on the assembled hardware.
+- Reverse-mode output includes a distance or alert status from the ultrasonic sensing path.
+
+These are visual observations, not calibrated measurements. Before publishing quantitative performance claims, record known target distances, displayed distances, CAN message reception, alert activation/deactivation points, and any test failures in a results table.
 
 ## Testing Checklist
 
